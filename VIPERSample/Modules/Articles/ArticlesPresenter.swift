@@ -13,18 +13,28 @@ final class ArticlesPresenter: ArticlesPresenterProtocol {
     private weak var view: ArticlesViewProtocol!
     private var interactor: ArticlesInteractorProtocol
     private var router: ArticlesRouterProtocol
-    
     private let disposeBag = DisposeBag()
+    
+    private(set) var articlesViewData: Driver<ArticlesViewData> = .empty()
+    
+    private let errorsSubject = PublishSubject<Error>()
+    var errors: Driver<Error> {
+        return errorsSubject.asDriver(onErrorDriveWith: .empty())
+    }
     
     init(view: ArticlesViewProtocol, interactor: ArticlesInteractorProtocol, router: ArticlesRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router
         
-        let _ = view.refreshTrigger
-            .asObservable()
-            .flatMapFirst { _ -> Observable<ArticlesViewData> in
+        articlesViewData = view.refreshTrigger
+            .flatMapFirst { _ in
                 return self.interactor.fetchArticlesViewData()
+                    .catchError { error in
+                        self.errorsSubject.onNext(error)
+                        return .empty()
+                    }
+                    .asDriver(onErrorJustReturn: .empty)
             }
     }
 }

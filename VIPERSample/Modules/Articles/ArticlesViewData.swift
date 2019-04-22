@@ -11,3 +11,7 @@ import Foundation
 struct ArticlesViewData {
     let articles: [Article]
 }
+
+extension ArticlesViewData {
+   static let empty = ArticlesViewData(articles: [])
+}

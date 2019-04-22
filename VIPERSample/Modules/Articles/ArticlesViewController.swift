@@ -11,13 +11,13 @@ import RxSwift
 import RxCocoa
 
 final class ArticlesViewController: UIViewController, ArticlesViewProtocol {
+    private var presenter: ArticlesPresenterProtocol!
+    private let disposeBag = DisposeBag()
+    
+    private var refreshTriggerSubject = PublishSubject<Void>()
     var refreshTrigger: Driver<Void> {
         return refreshTriggerSubject.asDriver(onErrorDriveWith: .empty())
     }
-    private var refreshTriggerSubject = PublishSubject<Void>()
-    
-    private var presenter: ArticlesPresenterProtocol!
-    private let disposeBag = DisposeBag()
     
     func inject(_ presenter: ArticlesPresenterProtocol) {
         self.presenter = presenter
@@ -26,7 +26,8 @@ final class ArticlesViewController: UIViewController, ArticlesViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rx.viewWillAppear.take(1)
+        rx.viewWillAppear
+            .take(1)
             .bind(to: refreshTriggerSubject)
             .disposed(by: disposeBag)
     }

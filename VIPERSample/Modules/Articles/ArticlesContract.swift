@@ -14,6 +14,8 @@ protocol ArticlesViewProtocol: class {
 }
 
 protocol ArticlesPresenterProtocol: class {
+    var articlesViewData: Driver<ArticlesViewData> { get }
+    var errors: Driver<Error> { get }
 }
 
 protocol ArticlesInteractorProtocol: class {
