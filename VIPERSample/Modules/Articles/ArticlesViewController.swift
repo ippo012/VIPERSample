@@ -23,6 +23,10 @@ final class ArticlesViewController: UIViewController, ArticlesViewProtocol {
         self.presenter = presenter
     }
     
+    deinit {
+        Logger.log("\(self)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -23,6 +23,7 @@
 		D21E4741226B1E5E004CCDD5 /* ArticlesViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E4740226B1E5E004CCDD5 /* ArticlesViewData.swift */; };
 		D21E4744226B7934004CCDD5 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E4743226B7934004CCDD5 /* RootRouter.swift */; };
 		D21E4746226B7947004CCDD5 /* RootContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E4745226B7947004CCDD5 /* RootContract.swift */; };
+		D255B27D2275A0EE0016C164 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D255B27C2275A0EE0016C164 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		D21E4740226B1E5E004CCDD5 /* ArticlesViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewData.swift; sourceTree = "<group>"; };
 		D21E4743226B7934004CCDD5 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		D21E4745226B7947004CCDD5 /* RootContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContract.swift; sourceTree = "<group>"; };
+		D255B27C2275A0EE0016C164 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				D21E473D226B18CF004CCDD5 /* Extensions */,
 				D21E4726226AFD70004CCDD5 /* Modules */,
 				D20D6970226E0E1800469E27 /* Resources */,
+				D255B27B2275A0D00016C164 /* Utilities */,
 			);
 			path = VIPERSample;
 			sourceTree = "<group>";
@@ -192,6 +195,14 @@
 				D21E4743226B7934004CCDD5 /* RootRouter.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		D255B27B2275A0D00016C164 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D255B27C2275A0EE0016C164 /* Logger.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		E6401A5FA7B46C107026DA12 /* Pods */ = {
@@ -362,6 +373,7 @@
 				D21E4739226AFE88004CCDD5 /* Article.swift in Sources */,
 				D21E4737226AFE12004CCDD5 /* ArticlesRouter.swift in Sources */,
 				D21E4746226B7947004CCDD5 /* RootContract.swift in Sources */,
+				D255B27D2275A0EE0016C164 /* Logger.swift in Sources */,
 				D21E4705226AFC10004CCDD5 /* AppDelegate.swift in Sources */,
 				D21E4744226B7934004CCDD5 /* RootRouter.swift in Sources */,
 				D21E4733226AFDF2004CCDD5 /* ArticlesPresenter.swift in Sources */,
